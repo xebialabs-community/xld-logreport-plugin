@@ -9,4 +9,4 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: xebialabs-community/xlr-logreport-plugin
+    repo: xebialabs-community/xld-logreport-plugin
