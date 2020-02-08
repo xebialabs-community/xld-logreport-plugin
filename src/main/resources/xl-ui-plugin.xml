@@ -13,7 +13,5 @@
     <!-- generating top menu for option and mapping to its own html -->
 			<menu id="xldeploy.menu.Logger"  label="Logger" weight="10" uri="include/logger/report.html">
     	</menu>
-			<menu id="xldeploy.menu.Configuration" label="Configuration" weight="20" uri="include/logger/configuration.html">
-			</menu>
 
 </plugin>

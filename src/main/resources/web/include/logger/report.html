@@ -17,13 +17,14 @@
 
 </head>
 <body ng-app="extension.logger" ng-controller="xldeploy.logger.ReportController as ReportController" class="ng-scope">
-
 	<div class="container">
 		<div class="row " style="height: 50px;">
 		</div>
 		<div  class="row clearfix">
 
 			<div class="col-md-12 column">
+				<a href="configuration.html">Logger Configuration</a>
+				</br>
 				<table class="table table-rounded table-striped" aria-describedby="Logger names and levels">
 						<thead>
 								<tr>
@@ -37,8 +38,8 @@
 										</td>
 										<td scope="col" style="width: 10%;"><button ng-click="tail()">Load</button>
 								</tr>
-								<tr>
-									<td scope="col" style="width:100%;" colspan="5"><textarea wrap="off" style="width:100%;" rows="30" ng-model="logLines" ng-list="&#10;" ng-trim="false">!</textarea></td>
+								<tr ng-repeat="x in logLines track by $index">
+									<td scope="col" stype="width: 90%;" colspan="5">{{ x }}</td>
 								</tr>
 			</div>
 		</div>
