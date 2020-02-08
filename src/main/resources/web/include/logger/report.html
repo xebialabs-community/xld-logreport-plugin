@@ -14,6 +14,40 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
+		<style>
+		  #myInput {
+		    background-image: url('/logreport/search.png'); /* Add a search icon to input */
+		    background-position: 10px 1px; /* Position the search icon */
+		    background-repeat: no-repeat; /* Do not repeat the icon image */
+		    width: 100%; /* Full-width */
+		    font-size: 18px; /* Increase font-size */
+		    padding: 24px 20px 12px 40px; /* Add some padding */
+		    border: 1px solid #ddd; /* Add a grey border */
+		    margin-bottom: 12px; /* Add some space below the input */
+		  }
+
+		  #myTable {
+		    border-collapse: collapse; /* Collapse borders */
+		    width: 100%; /* Full-width */
+		    border: 1px solid #ddd; /* Add a grey border */
+		    font-size: 12px; /* Increase font-size */
+		  }
+
+		  #myTable th, #myTable td {
+		    text-align: left; /* Left-align text */
+		    padding: 10px; /* Add padding */
+		  }
+
+		  #myTable tr {
+		    /* Add a bottom border to all table rows */
+		    border-bottom: 1px solid #ddd;
+		  }
+
+		  #myTable tr.header, #myTable tr:hover {
+		    /* Add a grey background color to the table header and on hover */
+		    background-color: #f1f1f1;
+		  }
+		</style>
 
 </head>
 <body ng-app="extension.logger" ng-controller="xldeploy.logger.ReportController as ReportController" class="ng-scope">
@@ -25,7 +59,8 @@
 			<div class="col-md-12 column">
 				<a href="configuration.html">Logger Configuration</a>
 				</br>
-				<table class="table table-rounded table-striped" aria-describedby="Logger names and levels">
+				<input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for names..">
+				<table id="myTable" class="table table-rounded table-striped" aria-describedby="Logger names and levels">
 						<thead>
 								<tr>
 										<th scope="col" style="width: 10%;">Log File</th>
@@ -52,5 +87,28 @@
 
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<script type="text/javascript" src="js/configuration.js"></script>
+		<script>
+    function mySearch() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
 	</body>
 </html>
