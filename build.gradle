@@ -5,7 +5,7 @@ plugins {
   id "com.xebialabs.xl.docker" version "1.1.0"
   id "com.github.hierynomus.license" version "0.14.0"
   id "com.github.hierynomus.jython" version "0.8.0"
-  id "nebula.release" version "8.0.0"
+  id "nebula.release" version "7.0.0"
 }
 
 apply plugin: 'java'
