@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory as LoggerFactory
 import ch.qos.logback.classic.Level as logLevels
 import json
 
+
 def getLogAppenders( loggerName="console" ):
     loggerMap = []
     myLogger = LoggerFactory.getLogger("logmanager")
